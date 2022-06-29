@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ASR.Bookstore.Models;
+using ASR.Bookstore.Repository;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +14,27 @@ namespace ASR.Bookstore.Controllers
         //{
         //    return View();
         //}
-        
-        public string GetAllBooks()
+
+        private readonly BookRepository _bookRepository = null;
+
+        public BookController()
         {
-            return "All Books"; 
+            _bookRepository = new BookRepository();
         }
 
-        public string GetBook(int id)
+        public List<BookModel> GetAllBooks()
         {
-            return $"Book with id = {id}";
+            return _bookRepository.GetAllBooks(); 
         }
 
-        public string SearchBook(string bookName, string authorName)
+        public BookModel GetBook(int id)
         {
-            return $"Book with name = {bookName} & Author = {authorName}";
+            return _bookRepository.GetBookById(id);
+        }
+
+        public List<BookModel> SearchBook(string bookName, string authorName)
+        {
+            return _bookRepository.SearchBook(bookName,authorName);
         }
     }
 }
