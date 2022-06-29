@@ -26,6 +26,31 @@ namespace ASR.Bookstore
                 app.UseDeveloperExceptionPage();
             }
 
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Hello from My 1st middleware");
+
+            //    await next();
+
+            //    await context.Response.WriteAsync(" Hello from My 1st middleware response");
+            //});
+
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync(" Hello from My 2nd middleware");
+
+            //    await next();
+
+            //    await context.Response.WriteAsync(" Hello from My 2nd middleware response");
+            //});
+
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync(" Hello from My 3rd middleware");
+
+            //    await next();
+            //});
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
@@ -33,6 +58,14 @@ namespace ASR.Bookstore
                 endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
+                });
+            });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.Map("/anand", async context =>
+                {
+                    await context.Response.WriteAsync("Hello Anand!");
                 });
             });
         }
