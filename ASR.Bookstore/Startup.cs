@@ -53,6 +53,33 @@ namespace ASR.Bookstore
 
             app.UseRouting();
 
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapGet("/", async context =>
+            //    {
+            //        if (env.IsDevelopment())
+            //        {
+            //            await context.Response.WriteAsync("Hello from Developement");
+            //        }
+            //        else if (env.IsProduction())
+            //        {
+            //            await context.Response.WriteAsync("Hello from Production");
+            //        }
+            //        else if (env.IsStaging())
+            //        {
+            //            await context.Response.WriteAsync("Hello from Staging");
+            //        }
+            //        else if (env.IsEnvironment("Anand"))
+            //        {
+            //            await context.Response.WriteAsync("Hello from Anand Custom env variable");
+            //        }
+            //        else
+            //        {
+            //            await context.Response.WriteAsync(env.EnvironmentName);
+            //        }
+            //    });
+            //});
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
